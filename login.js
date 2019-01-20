@@ -8,15 +8,15 @@
     var _reactNative = ReactNative;
     var _nativebase = NativeBase;
     var root = this;
-    var validate = function() {
+    componentState.validate = function(username, password) {
         _nativebase.Toast.show({
-            text: state.username,
+            text: username,
             position: 'top',
             buttonText: 'Okay',
             duration: 5000,
             type: 'danger',
         })
-        if (state.userName === '' || state.userName == undefined) {
+        if (username === '' || username == undefined) {
             _nativebase.Toast.show({
                 text: 'Please enter Username',
                 position: 'bottom',
@@ -25,7 +25,7 @@
                 type: 'danger',
             })
         }
-        else if (state.password === '' || state.password == undefined) {
+        else if (password === '' || password == undefined) {
             _nativebase.Toast.show({
                 text: 'Please enter Password',
                 position: 'bottom',
