@@ -9,6 +9,13 @@
     var _nativebase = NativeBase;
     var root = this;
     var validate = function() {
+        _nativebase.Toast.show({
+            text: state.username,
+            position: 'top',
+            buttonText: 'Okay',
+            duration: 5000,
+            type: 'danger',
+        })
         if (state.userName === '' || state.userName == undefined) {
             _nativebase.Toast.show({
                 text: 'Please enter Username',
