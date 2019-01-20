@@ -1,4 +1,4 @@
-(function main(React, ReactNative,NativeBase,componentState, styles, require, Overlay) {
+(function main(React, ReactNative,NativeBase,componentState, styles, require, Overlay, state) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -9,7 +9,7 @@
     var _nativebase = NativeBase;
     var root = this;
     var validate = function() {
-        if (componentState.state.userName === '' || componentState.state.userName == undefined) {
+        if (state.userName === '' || state.userName == undefined) {
             _nativebase.Toast.show({
                 text: 'Please enter Username',
                 position: 'bottom',
@@ -18,7 +18,7 @@
                 type: 'danger',
             })
         }
-        else if (componentState.state.password === '' || componentState.state.password == undefined) {
+        else if (state.password === '' || state.password == undefined) {
             _nativebase.Toast.show({
                 text: 'Please enter Password',
                 position: 'bottom',
