@@ -8,6 +8,15 @@
     var _reactNative = ReactNative;
     var _nativebase = NativeBase;
     var root = this;
+    var validate = function() {
+      _nativebase.Toast.show({
+        text: 'Please enter Password',
+        position: 'bottom',
+        buttonText: 'Okay',
+        duration: 5000,
+        type: 'danger',
+      })
+    }
 
 
     return react_1.createElement(_nativebase.Container, {style:styles.containerStyle }, [
@@ -71,45 +80,9 @@
                                     "id": "M_layout_content_PCDZ_MNS7LAN_ctl00_btnCancel",
                                     "key": "M_layout_content_PCDZ_MNS7LAN_ctl00_btnCancel",
                                     style : styles.loginButton,
-                                    // ----------
-				                                 onPress: function() {
-                                          () => {
-                                           if (componentState.state.userName === '' || componentState.state.userName == undefined) {
-                                                NativeBase.Toast.show({
-                                                    text: 'Please enter Username',
-                                                    position: 'bottom',
-                                                    buttonText: 'Okay',
-                                                    duration: 5000,
-                                                    type: 'danger',
-                                                })
-                                            }
-                                            else if (componentState.state.password === '' || componentState.state.password == undefined) {
-                                                NativeBase.Toast.show({
-                                                    text: 'Please enter Password',
-                                                    position: 'bottom',
-                                                    buttonText: 'Okay',
-                                                    duration: 5000,
-                                                    type: 'danger',
-                                                })
-                                            }
-                                            else {
-                                                componentState.setState({progressModal:true});
-                                                return(<Overlay
-                                                    visible={componentState.state.progressModal}
-                                                            //closeOnTouchOutside
-                                                             animationType="zoomIn"
-                                                             containerStyle={{backgroundColor: 'rgba(37, 8, 10, 0.78)'}}
-                                                             childrenWrapperStyle={{backgroundColor: '#eee'}}
-                                                             animationDuration={100}>
-                                                             <View>
-                                                                 <ActivityIndicator size="large" color="#3491cc"/>
-                                                                <Text>Please wait a moment...</Text>
-                                                            </View>
-                                                       </Overlay>);
-                                            }
-                                          }
-        // ---
-                                  },
+				                            onPress: function() {
+                                      validate()
+                                    }
                                 },[react_1.createElement(_reactNative.Text, {
                                     "htmlFor": "M_layout_content_PCDZ_MNS7LAN_ctl00_ctl023",
                                     "key": "M_layout_content_PCDZ_MNS7LAN_ctl00_ctl023_Label",
