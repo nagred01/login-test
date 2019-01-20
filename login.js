@@ -72,7 +72,8 @@
                                     "key": "M_layout_content_PCDZ_MNS7LAN_ctl00_btnCancel",
                                     style : styles.loginButton,
                                     // ----------
-				                                 onPress: () => {
+				                                 onPress: function() {
+                                          () => {
                                            if (componentState.state.userName === '' || componentState.state.userName == undefined) {
                                                 NativeBase.Toast.show({
                                                     text: 'Please enter Username',
@@ -106,6 +107,7 @@
                                                             </View>
                                                        </Overlay>);
                                             }
+                                          }
         // ---
                                   },
                                 },[react_1.createElement(_reactNative.Text, {
