@@ -10,6 +10,7 @@
     var root = this;
 
     var loginCall = function(username, password) {
+        componentState.setState({ progressModal: true });
         var userJsonData = { "loginName": username, "password": password }
         fetch('https://cfsfiserv.com/QEUATSMT/api/Authentication/LogIn',
             {
@@ -22,7 +23,6 @@
                 componentState.setState({progressModal:false});
                 var responseObj = JSON.parse(response._bodyText);
                 var TokenResponse = responseObj.antiForgeryToken;
-                //console.log("responseObj  =::" + responseObj.antiForgeryToken);
                 if (TokenResponse == '' || TokenResponse == undefined) {
                     componentState.setState({progressModal:false});
                     react_1.Alert.alert(
