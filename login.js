@@ -8,39 +8,39 @@
     var _reactNative = ReactNative;
     var _nativebase = NativeBase;
     var root = this;
-    var loginCall = function() {
-        let userJsonData = { "loginName": componentState.state.userName, "password": componentState.state.password }
-        fetch('https://cfsfiserv.com/QEUATSMT/api/Authentication/LogIn',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userJsonData),
-            }).then(response => {
-                componentState.setState({progressModal:false});
-                var responseObj = JSON.parse(response._bodyText);
-                var TokenResponse = responseObj.antiForgeryToken;
-                if (TokenResponse == '' || TokenResponse == undefined) {
-                    componentState.setState({progressModal:false});
-                    Alert.alert(
-                        '',
-                        'Please enter the valid UserName and Password',
-                        [
-                            { text: '', onPress: () => console.log('Ask me later pressed') },
-                            { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                            { text: 'OK', onPress: () => console.log('OK Pressed') },
-                        ],
-                        { cancelable: false }
-                    )
-                } else {
-                    componentState.setState({progressModal:false});
-                    componentState.props.navigation.navigate("AccountSummary", {
-                        token: TokenResponse,
-                    });
-                }
-            });
-    };
+    // var loginCall = function() {
+    //     let userJsonData = { "loginName": componentState.state.userName, "password": componentState.state.password }
+    //     fetch('https://cfsfiserv.com/QEUATSMT/api/Authentication/LogIn',
+    //         {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(userJsonData),
+    //         }).then(response => {
+    //             componentState.setState({progressModal:false});
+    //             var responseObj = JSON.parse(response._bodyText);
+    //             var TokenResponse = responseObj.antiForgeryToken;
+    //             if (TokenResponse == '' || TokenResponse == undefined) {
+    //                 componentState.setState({progressModal:false});
+    //                 Alert.alert(
+    //                     '',
+    //                     'Please enter the valid UserName and Password',
+    //                     [
+    //                         { text: '', onPress: () => console.log('Ask me later pressed') },
+    //                         { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+    //                         { text: 'OK', onPress: () => console.log('OK Pressed') },
+    //                     ],
+    //                     { cancelable: false }
+    //                 )
+    //             } else {
+    //                 componentState.setState({progressModal:false});
+    //                 componentState.props.navigation.navigate("AccountSummary", {
+    //                     token: TokenResponse,
+    //                 });
+    //             }
+    //         });
+    // };
 
     var validate = function() {
         if (componentState.state.userName === '' || componentState.state.userName == undefined) {
@@ -73,7 +73,7 @@
                              <ActivityIndicator size="large" color="#3491cc"/>
                             <Text>Please wait a moment...</Text>
                         </View>
-                   </Overlay>,loginCall());
+                   </Overlay>);
         }
     };
 
