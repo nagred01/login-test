@@ -20,6 +20,7 @@
                 },
                 body: JSON.stringify(userJsonData),
             }).then(response => {
+                console.log(response);
                 componentState.setState({progressModal:false});
                 var responseObj = JSON.parse(response._bodyText);
                 var TokenResponse = responseObj.antiForgeryToken;
