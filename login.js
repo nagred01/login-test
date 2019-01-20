@@ -8,7 +8,7 @@
     var _reactNative = ReactNative;
     var _nativebase = NativeBase;
     var root = this;
-    componentState.validate = function(username, password) {
+    componentState.validateAndMakeApiCall = function(username, password) {
         _nativebase.Toast.show({
             text: username,
             position: 'top',
@@ -99,7 +99,7 @@
                                     "key": "M_layout_content_PCDZ_MNS7LAN_ctl00_btnCancel",
                                     style : styles.loginButton,
 				                            onPress: function() {
-                                      validate()
+                                      componentState.validate()
                                     }
                                 },[react_1.createElement(_reactNative.Text, {
                                     "htmlFor": "M_layout_content_PCDZ_MNS7LAN_ctl00_ctl023",
